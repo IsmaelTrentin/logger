@@ -1,5 +1,4 @@
 import * as colorette from 'colorette';
-
 import { format } from 'winston';
 
 export const createCustomFormat = (baseAt: string) =>

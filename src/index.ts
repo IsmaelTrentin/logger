@@ -1,7 +1,7 @@
-import { createLogger, format, transports } from 'winston';
+import { createCustomFormat } from './custom.format';
+import { createLogger, format, Logger, transports } from 'winston';
 
 import type { LoggerOptions } from 'winston';
-import { createCustomFormat } from './custom.format';
 
 const { combine, timestamp, label } = format;
 
@@ -9,7 +9,7 @@ const loggerFactory = (
   baseAt?: string,
   labelIn?: string,
   options?: LoggerOptions
-) => {
+): Logger => {
   const customFormat = createCustomFormat(baseAt ? baseAt : '');
 
   return createLogger({
